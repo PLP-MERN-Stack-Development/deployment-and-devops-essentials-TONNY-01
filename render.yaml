@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: task-manager-api
+    env: node
+    plan: free
+    buildCommand: cd task-manager/server && npm install
+    startCommand: cd task-manager/server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+    healthCheckPath: /health
+
